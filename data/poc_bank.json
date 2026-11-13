@@ -1,0 +1,125 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "bank_id": "POC-BANK-001",
+      "payout_id": "POC-PAYOUT-EXACT",
+      "settled_at": "2026-10-06T12:00:00Z",
+      "amount": "970.55",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-001",
+      "account_id": "POC-ACCOUNT-001",
+      "description": "Synthetic gateway settlement exact ledger match"
+    },
+    {
+      "bank_id": "POC-BANK-002",
+      "payout_id": "POC-PAYOUT-FEE",
+      "settled_at": "2026-10-06T14:00:00Z",
+      "amount": "485.20",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-002",
+      "account_id": "POC-ACCOUNT-002",
+      "description": "Synthetic gateway settlement after processing fees"
+    },
+    {
+      "bank_id": "POC-BANK-003",
+      "payout_id": "POC-PAYOUT-AML-LARGE",
+      "settled_at": "2026-10-07T10:00:00Z",
+      "amount": "12500.00",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-AML-001",
+      "account_id": "POC-ACCOUNT-AML-001",
+      "description": "Synthetic large deposit for compliance-rule test"
+    },
+    {
+      "bank_id": "POC-BANK-004",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-1",
+      "settled_at": "2026-10-08T09:00:00Z",
+      "amount": "4000.00",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-AML-002",
+      "account_id": "POC-ACCOUNT-AML-002",
+      "description": "Synthetic deposit 1 of split-pattern test"
+    },
+    {
+      "bank_id": "POC-BANK-005",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-2",
+      "settled_at": "2026-10-08T09:15:00Z",
+      "amount": "4000.00",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-AML-002",
+      "account_id": "POC-ACCOUNT-AML-002",
+      "description": "Synthetic deposit 2 of split-pattern test"
+    },
+    {
+      "bank_id": "POC-BANK-006",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-3",
+      "settled_at": "2026-10-08T09:30:00Z",
+      "amount": "4000.00",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-AML-002",
+      "account_id": "POC-ACCOUNT-AML-002",
+      "description": "Synthetic deposit 3 of split-pattern test"
+    },
+    {
+      "bank_id": "POC-BANK-007",
+      "payout_id": "POC-PAYOUT-MULTI-GATEWAY",
+      "settled_at": "2026-10-10T13:00:00Z",
+      "amount": "145.05",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-007",
+      "account_id": "POC-ACCOUNT-007",
+      "description": "Synthetic settlement combining two gateway transactions"
+    },
+    {
+      "bank_id": "POC-BANK-008",
+      "payout_id": "POC-PAYOUT-FEE-DISCREPANCY",
+      "settled_at": "2026-10-10T14:00:00Z",
+      "amount": "96.81",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-008",
+      "account_id": "POC-ACCOUNT-008",
+      "description": "Synthetic amount differs by one cent from calculated gateway net"
+    },
+    {
+      "bank_id": "POC-BANK-009",
+      "payout_id": "POC-PAYOUT-DATE-DISCREPANCY",
+      "settled_at": "2026-10-11T10:00:00Z",
+      "amount": "210.00",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-009",
+      "account_id": "POC-ACCOUNT-009",
+      "description": "Synthetic same-amount record for a UTC date mismatch test"
+    },
+    {
+      "bank_id": "POC-BANK-010",
+      "payout_id": "POC-PAYOUT-CURRENCY-DISCREPANCY",
+      "settled_at": "2026-10-12T10:00:00Z",
+      "amount": "310.00",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-010",
+      "account_id": "POC-ACCOUNT-010",
+      "description": "Synthetic record for a currency mismatch test"
+    },
+    {
+      "bank_id": "POC-BANK-011",
+      "payout_id": "POC-PAYOUT-LATE-SETTLEMENT",
+      "settled_at": "2026-10-13T10:00:00Z",
+      "amount": "96.80",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-011",
+      "account_id": "POC-ACCOUNT-011",
+      "description": "Synthetic net amount settled outside the configured 48-hour window"
+    },
+    {
+      "bank_id": "POC-BANK-012",
+      "payout_id": "POC-PAYOUT-AML-BOUNDARY",
+      "settled_at": "2026-10-14T10:00:00Z",
+      "amount": "10000.00",
+      "currency": "USD",
+      "customer_id": "POC-CUSTOMER-012",
+      "account_id": "POC-ACCOUNT-012",
+      "description": "Synthetic transaction exactly at the illustrative AML threshold"
+    }
+  ]
+}

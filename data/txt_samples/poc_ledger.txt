@@ -1,0 +1,21 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "ledger_id": "TXT-LEDGER-001",
+      "payout_id": "TXT-PAYOUT-001",
+      "posted_at": "2026-11-01T13:00:00Z",
+      "amount": "96.80",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "TXT-LEDGER-002",
+      "payout_id": "TXT-PAYOUT-002",
+      "posted_at": "2026-11-02T13:00:00Z",
+      "amount": "48.25",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    }
+  ]
+}

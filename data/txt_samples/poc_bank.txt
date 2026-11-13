@@ -1,0 +1,25 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "bank_id": "TXT-BANK-001",
+      "payout_id": "TXT-PAYOUT-001",
+      "settled_at": "2026-11-01T12:00:00Z",
+      "amount": "96.80",
+      "currency": "USD",
+      "customer_id": "TXT-CUSTOMER-001",
+      "account_id": "TXT-ACCOUNT-001",
+      "description": "Synthetic bank settlement for local TXT-format smoke test"
+    },
+    {
+      "bank_id": "TXT-BANK-002",
+      "payout_id": "TXT-PAYOUT-002",
+      "settled_at": "2026-11-02T12:00:00Z",
+      "amount": "48.25",
+      "currency": "USD",
+      "customer_id": "TXT-CUSTOMER-002",
+      "account_id": "TXT-ACCOUNT-002",
+      "description": "Synthetic bank settlement after gateway fees"
+    }
+  ]
+}

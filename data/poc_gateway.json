@@ -1,0 +1,82 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "gateway_id": "POC-GW-001",
+      "payout_id": "POC-PAYOUT-EXACT",
+      "transaction_at": "2026-10-05T12:00:00Z",
+      "gross_amount": "500.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-002",
+      "payout_id": "POC-PAYOUT-EXACT",
+      "transaction_at": "2026-10-05T12:00:00Z",
+      "gross_amount": "500.15",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-003",
+      "payout_id": "POC-PAYOUT-FEE",
+      "transaction_at": "2026-10-05T14:00:00Z",
+      "gross_amount": "500.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-004",
+      "payout_id": "POC-PAYOUT-AML-LARGE",
+      "transaction_at": "2026-10-07T09:00:00Z",
+      "gross_amount": "12500.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-005",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-1",
+      "transaction_at": "2026-10-08T08:55:00Z",
+      "gross_amount": "4000.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-006",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-2",
+      "transaction_at": "2026-10-08T09:10:00Z",
+      "gross_amount": "4000.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-007",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-3",
+      "transaction_at": "2026-10-08T09:25:00Z",
+      "gross_amount": "4000.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-008",
+      "payout_id": "POC-PAYOUT-MULTI-GATEWAY",
+      "transaction_at": "2026-10-10T10:00:00Z",
+      "gross_amount": "100.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-009",
+      "payout_id": "POC-PAYOUT-MULTI-GATEWAY",
+      "transaction_at": "2026-10-10T10:05:00Z",
+      "gross_amount": "50.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-010",
+      "payout_id": "POC-PAYOUT-FEE-DISCREPANCY",
+      "transaction_at": "2026-10-10T12:00:00Z",
+      "gross_amount": "100.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "POC-GW-011",
+      "payout_id": "POC-PAYOUT-LATE-SETTLEMENT",
+      "transaction_at": "2026-10-10T09:00:00Z",
+      "gross_amount": "100.00",
+      "currency": "USD"
+    }
+  ]
+}

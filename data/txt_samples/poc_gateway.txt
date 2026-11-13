@@ -1,0 +1,19 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "gateway_id": "TXT-GW-001",
+      "payout_id": "TXT-PAYOUT-001",
+      "transaction_at": "2026-10-31T12:00:00Z",
+      "gross_amount": "100.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "TXT-GW-002",
+      "payout_id": "TXT-PAYOUT-002",
+      "transaction_at": "2026-11-01T12:00:00Z",
+      "gross_amount": "50.00",
+      "currency": "USD"
+    }
+  ]
+}

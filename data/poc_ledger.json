@@ -1,0 +1,109 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "ledger_id": "POC-LEDGER-001",
+      "payout_id": "POC-PAYOUT-EXACT",
+      "posted_at": "2026-10-06T13:00:00Z",
+      "amount": "970.55",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-002",
+      "payout_id": "POC-PAYOUT-FEE",
+      "posted_at": "2026-10-06T15:00:00Z",
+      "amount": "485.20",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-003",
+      "payout_id": "POC-PAYOUT-AML-LARGE",
+      "posted_at": "2026-10-07T11:00:00Z",
+      "amount": "12500.00",
+      "currency": "USD",
+      "account": "Synthetic Review Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-004",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-1",
+      "posted_at": "2026-10-08T10:00:00Z",
+      "amount": "4000.00",
+      "currency": "USD",
+      "account": "Synthetic Review Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-005",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-2",
+      "posted_at": "2026-10-08T10:01:00Z",
+      "amount": "4000.00",
+      "currency": "USD",
+      "account": "Synthetic Review Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-006",
+      "payout_id": "POC-PAYOUT-AML-SPLIT-3",
+      "posted_at": "2026-10-08T10:02:00Z",
+      "amount": "4000.00",
+      "currency": "USD",
+      "account": "Synthetic Review Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-ORPHAN",
+      "payout_id": "POC-PAYOUT-LEDGER-ORPHAN",
+      "posted_at": "2026-10-09T14:00:00Z",
+      "amount": "77.77",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-007",
+      "payout_id": "POC-PAYOUT-MULTI-GATEWAY",
+      "posted_at": "2026-10-10T14:00:00Z",
+      "amount": "145.05",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-008",
+      "payout_id": "POC-PAYOUT-FEE-DISCREPANCY",
+      "posted_at": "2026-10-10T15:00:00Z",
+      "amount": "96.81",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-009",
+      "payout_id": "POC-PAYOUT-DATE-DISCREPANCY",
+      "posted_at": "2026-10-12T10:00:00Z",
+      "amount": "210.00",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-010",
+      "payout_id": "POC-PAYOUT-CURRENCY-DISCREPANCY",
+      "posted_at": "2026-10-12T10:00:00Z",
+      "amount": "310.00",
+      "currency": "CAD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-011",
+      "payout_id": "POC-PAYOUT-LATE-SETTLEMENT",
+      "posted_at": "2026-10-13T10:00:00Z",
+      "amount": "96.80",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "POC-LEDGER-012",
+      "payout_id": "POC-PAYOUT-AML-BOUNDARY",
+      "posted_at": "2026-10-14T10:00:00Z",
+      "amount": "10000.00",
+      "currency": "USD",
+      "account": "Synthetic Review Clearing"
+    }
+  ]
+}
