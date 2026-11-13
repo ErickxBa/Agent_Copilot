@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import MagicMock
 
+from fastapi import HTTPException
 from src.api_server import (
     ChatMessageRequest,
     CreateSessionRequest,
@@ -19,6 +20,7 @@ from src.api_server import (
     list_sessions,
     chat_message,
     request_validation_error_handler,
+    CopilotBackendError,
 )
 from fastapi.exceptions import RequestValidationError
 from src.copilot_backend import (
@@ -149,6 +151,24 @@ class ApiServerTests(unittest.TestCase):
         )
 
         self.assertEqual(result["assistant_content"], "Respuesta de prueba")
+
+    def test_chat_does_not_return_a_hardcoded_response_when_copilot_is_unavailable(self):
+        self.mock_backend.send_message.side_effect = CopilotBackendError(
+            "No GitHub OAuth token is available"
+        )
+
+        with self.assertRaisesRegex(
+            HTTPException,
+            "Copilot no está autenticado",
+        ):
+            asyncio.run(
+                chat_message(
+                    session_id="test-session-123",
+                    message="Pregunta de prueba",
+                    skills="reconciliation-engineering",
+                    attachment=None,
+                )
+            )
 
     def test_chat_attachment_runs_sync_copilot_backend_outside_event_loop(self):
         class TestAttachment:

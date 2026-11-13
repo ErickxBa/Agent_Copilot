@@ -167,9 +167,29 @@ class OrchestratorTests(unittest.TestCase):
         }
 
         self.assertIn("POC-PAYOUT-MULTI-GATEWAY", exact_payouts)
+        exact_match = next(
+            item
+            for item in result["exact_matches"]
+            if item.payout_id == "POC-PAYOUT-MULTI-GATEWAY"
+        )
+        self.assertEqual(
+            exact_match.reason,
+            (
+                "El pago del banco y del libro mayor coincide en identificador "
+                "de pago, moneda, importe y fecha UTC."
+            ),
+        )
         self.assertIn("POC-PAYOUT-LATE-SETTLEMENT", exact_payouts)
         self.assertIn("POC-PAYOUT-AML-BOUNDARY", exact_payouts)
         self.assertIn("POC-PAYOUT-MULTI-GATEWAY", fee_matches)
+        self.assertEqual(
+            fee_matches["POC-PAYOUT-MULTI-GATEWAY"].reason,
+            (
+                "La liquidación bancaria coincide con el neto de la pasarela "
+                "después de las comisiones por transacción; la liquidación "
+                "se encuentra dentro de la ventana de 48 horas."
+            ),
+        )
         self.assertEqual(
             fee_matches["POC-PAYOUT-MULTI-GATEWAY"].record_ids,
             ["POC-BANK-007", "POC-GW-008", "POC-GW-009"],
@@ -269,6 +289,14 @@ class OrchestratorTests(unittest.TestCase):
         self.assertEqual(
             {item["rule_id"] for item in report["compliance_alerts"]},
             {"large_transaction", "potential_split_deposits"},
+        )
+        alert_descriptions = {
+            item["rule_id"]: item["description"]
+            for item in report["compliance_alerts"]
+        }
+        self.assertEqual(
+            alert_descriptions["large_transaction"],
+            "Una transacción en USD es de 12500.00, por encima de USD 10,000.00.",
         )
         self.assertEqual(len(saved_reports), 1)
 

@@ -424,21 +424,13 @@ async def chat_message(
             or "HMAC key" in err_msg
             or "not authenticated" in err_msg.lower()
         ):
-            return {
-                "user_content": user_content if "user_content" in locals() else message,
-                "assistant_content": (
-                    "**No se detectó una sesión autenticada de GitHub Copilot en esta terminal.**\n\n"
-                    "Para interactuar con el agente Copilot en tiempo real, ejecuta uno de los siguientes comandos en tu terminal de Windows:\n\n"
-                    "```powershell\n"
-                    "# Opción 1: Iniciar el asistente CLI de Copilot\n"
-                    "copilot\n\n"
-                    "# Opción 2: Autenticar mediante GitHub CLI\n"
-                    "gh auth login\n"
-                    "```\n\n"
-                    "Una vez completado el inicio de sesión en tu navegador, podrás conversar con el agente y analizar archivos automáticamente.\n\n"
-                    ">**Tip**: Todo el motor de conciliación financiera, matrices de cruce, reglas de tarifa y reportes PDF funcionan al 100% en la pestaña **«Conciliación Financiera»** sin necesidad de Copilot."
+            raise HTTPException(
+                status_code=503,
+                detail=(
+                    "Copilot no está autenticado en esta terminal. "
+                    "Ejecuta `copilot` o `gh auth login` y vuelve a intentarlo."
                 ),
-            }
+            ) from err
         raise HTTPException(status_code=500, detail=str(err))
 
 

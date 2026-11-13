@@ -240,7 +240,8 @@ def detect_aml_alerts(frames):
                 "large_transaction",
                 "high",
                 [row],
-                f"One USD transaction is {row['_amount']}, above USD 10,000.00.",
+                f"Una transacción en USD es de {row['_amount']}, "
+                "por encima de USD 10,000.00.",
             )
 
     eligible = bank.loc[
@@ -277,8 +278,8 @@ def detect_aml_alerts(frames):
                     "potential_split_deposits",
                     "high",
                     split_window,
-                    f"{len(split_window)} USD deposits total {total:.2f} "
-                    "within an inclusive 60-minute window.",
+                    f"{len(split_window)} depósitos en USD suman {total:.2f} "
+                    "dentro de una ventana inclusiva de 60 minutos.",
                 )
                 split_start = split_end
                 split_end = split_start
@@ -301,8 +302,8 @@ def detect_aml_alerts(frames):
                     "velocity_anomaly",
                     "medium",
                     velocity_window,
-                    f"{len(velocity_window)} deposits occurred within an inclusive "
-                    "60-minute window.",
+                    f"{len(velocity_window)} depósitos ocurrieron dentro de una "
+                    "ventana inclusiva de 60 minutos.",
                 )
                 velocity_start = velocity_end
                 velocity_end = velocity_start
@@ -361,7 +362,10 @@ def run_deterministic_fast_pass(frames, aml_alerts):
             record_ids=[row["bank_id"], row["ledger_id"]],
             payout_id=row["payout_id"],
             status="exact_match",
-            reason="Bank and ledger payout, currency, amount, and UTC date match.",
+            reason=(
+                "El pago del banco y del libro mayor coincide en identificador "
+                "de pago, moneda, importe y fecha UTC."
+            ),
             details={
                 "amount": f"{row['_amount']:.2f}",
                 "currency": row["currency"],
@@ -401,8 +405,9 @@ def run_deterministic_fast_pass(frames, aml_alerts):
             payout_id=row["payout_id"],
             status="fee_match",
             reason=(
-                "Bank settlement equals gateway net after per-transaction fees; "
-                "settlement is within the 48-hour window."
+                "La liquidación bancaria coincide con el neto de la pasarela "
+                "después de las comisiones por transacción; la liquidación "
+                "se encuentra dentro de la ventana de 48 horas."
             ),
             details={
                 "net_amount": f"{row['_net_amount']:.2f}",

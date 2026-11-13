@@ -46,8 +46,9 @@ class DemoSampleClient:
                     "payout_id": "DEMO-PAYOUT-003",
                     "status": "amount_difference",
                     "reason": (
-                        "The bank and ledger amount is 125.00 USD, while the "
-                        "gateway gross amount is 130.00 USD before fees."
+                        "El importe del banco y del libro mayor es de 125.00 "
+                        "USD, mientras que el importe bruto de la pasarela "
+                        "es de 130.00 USD antes de las comisiones."
                     ),
                     "details": {
                         "bank_amount": "125.00",
@@ -65,8 +66,9 @@ class DemoSampleClient:
                     "payout_id": "DEMO-PAYOUT-004",
                     "status": "possible_orphan",
                     "reason": (
-                        "The complete synthetic demonstration batch contains "
-                        "no gateway or ledger counterpart for this payout."
+                        "El lote de demostración sintético completo no contiene "
+                        "una transacción equivalente en la pasarela ni en el "
+                        "libro mayor para este pago."
                     ),
                     "details": {
                         "source_coverage": "complete_demo_batch",
