@@ -1,0 +1,40 @@
+{
+  "scenario": "audit-reporting",
+  "report_type": "financial_reconciliation_audit",
+  "findings": [
+    {
+      "category": "reconciliation_exceptions",
+      "record_ids": [
+        "SYN-BANK-201",
+        "SYN-LEDGER-201"
+      ],
+      "payout_id": "SYN-PAYOUT-201",
+      "status": "amount_difference",
+      "observed_evidence": {
+        "bank_amount": "740.00",
+        "ledger_amount": "735.00",
+        "currency": "USD",
+        "bank_record": "SYN-BANK-201",
+        "ledger_record": "SYN-LEDGER-201"
+      },
+      "hypothesis": "A fee, adjustment, or posting correction may explain the difference; the source data does not establish which one.",
+      "analyst_question": "Confirm the approved accounting rule and supporting settlement detail."
+    },
+    {
+      "category": "exact_matches",
+      "record_ids": [
+        "SYN-BANK-202",
+        "SYN-LEDGER-202"
+      ],
+      "payout_id": "SYN-PAYOUT-202",
+      "status": "exact_match",
+      "observed_evidence": {
+        "amount": "300.00",
+        "currency": "USD",
+        "date": "2026-11-03"
+      },
+      "analyst_question": "No unresolved question in the supplied evidence; retain the source references."
+    }
+  ],
+  "expected_output": "A concise analyst-facing explanation that separates confirmed match, observed discrepancy, hypothesis, and follow-up evidence."
+}

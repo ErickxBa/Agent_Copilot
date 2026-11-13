@@ -26,7 +26,7 @@ export const AuditDrawer: React.FC<AuditDrawerProps> = ({ item, category, onClos
     <div className="fixed inset-0 z-50 overflow-hidden bg-slate-900/50 backdrop-blur-xs flex justify-end transition-opacity">
       <div className="w-full max-w-xl bg-white dark:bg-slate-900 h-full shadow-2xl border-l border-slate-200 dark:border-slate-800 flex flex-col justify-between animate-in slide-in-from-right duration-300">
         {/* Drawer Header */}
-        <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex items-start justify-between">
+        <div className="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex items-start justify-between gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span
@@ -108,7 +108,7 @@ export const AuditDrawer: React.FC<AuditDrawerProps> = ({ item, category, onClos
         </div>
 
         {/* Drawer Footer */}
-        <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 flex items-center justify-between">
+        <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <span className="text-[11px] text-slate-400">
             Requiere validación y firma por un analista financiero.
           </span>

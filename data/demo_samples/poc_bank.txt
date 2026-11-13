@@ -1,0 +1,55 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "bank_id": "DEMO-BANK-001",
+      "payout_id": "DEMO-PAYOUT-001",
+      "settled_at": "2026-11-01T12:00:00Z",
+      "amount": "96.80",
+      "currency": "USD",
+      "customer_id": "DEMO-CUSTOMER-001",
+      "account_id": "DEMO-ACCOUNT-001",
+      "description": "Synthetic exact and fee-match demonstration"
+    },
+    {
+      "bank_id": "DEMO-BANK-002",
+      "payout_id": "DEMO-PAYOUT-002",
+      "settled_at": "2026-11-02T12:00:00Z",
+      "amount": "48.25",
+      "currency": "USD",
+      "customer_id": "DEMO-CUSTOMER-002",
+      "account_id": "DEMO-ACCOUNT-002",
+      "description": "Synthetic exact and fee-match demonstration"
+    },
+    {
+      "bank_id": "DEMO-BANK-003",
+      "payout_id": "DEMO-PAYOUT-003",
+      "settled_at": "2026-11-03T12:00:00Z",
+      "amount": "125.00",
+      "currency": "USD",
+      "customer_id": "DEMO-CUSTOMER-003",
+      "account_id": "DEMO-ACCOUNT-003",
+      "description": "Synthetic amount discrepancy demonstration"
+    },
+    {
+      "bank_id": "DEMO-BANK-004",
+      "payout_id": "DEMO-PAYOUT-004",
+      "settled_at": "2026-11-04T12:00:00Z",
+      "amount": "220.00",
+      "currency": "USD",
+      "customer_id": "DEMO-CUSTOMER-004",
+      "account_id": "DEMO-ACCOUNT-004",
+      "description": "Synthetic bank record with no counterpart in the complete demo batch"
+    },
+    {
+      "bank_id": "DEMO-BANK-005",
+      "payout_id": "DEMO-PAYOUT-005",
+      "settled_at": "2026-11-05T12:00:00Z",
+      "amount": "12000.00",
+      "currency": "USD",
+      "customer_id": "DEMO-CUSTOMER-005",
+      "account_id": "DEMO-ACCOUNT-005",
+      "description": "Synthetic transaction above the illustrative AML threshold"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "scenario": "source-format-validation",
+  "source": "synthetic_bank_statement",
+  "format": "json",
+  "format_version": "synthetic-v1",
+  "valid_sample": {
+    "records": [
+      {
+        "bank_id": "SYN-BANK-001",
+        "payout_id": "SYN-PAYOUT-001",
+        "amount": "125.50",
+        "currency": "USD",
+        "settled_at": "2026-11-01T12:00:00Z"
+      }
+    ]
+  },
+  "invalid_sample": {
+    "records": [
+      {
+        "bank_id": "SYN-BANK-002",
+        "payout_id": "SYN-PAYOUT-002",
+        "amount": "90.00",
+        "settled_at": "2026-11-01T13:00:00Z"
+      }
+    ]
+  },
+  "expected_observation": "The invalid sample is missing currency. Do not infer a currency or claim support for an official source format."
+}

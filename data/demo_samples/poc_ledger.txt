@@ -1,0 +1,37 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "ledger_id": "DEMO-LEDGER-001",
+      "payout_id": "DEMO-PAYOUT-001",
+      "posted_at": "2026-11-01T13:00:00Z",
+      "amount": "96.80",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "DEMO-LEDGER-002",
+      "payout_id": "DEMO-PAYOUT-002",
+      "posted_at": "2026-11-02T13:00:00Z",
+      "amount": "48.25",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "DEMO-LEDGER-003",
+      "payout_id": "DEMO-PAYOUT-003",
+      "posted_at": "2026-11-03T13:00:00Z",
+      "amount": "125.00",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    },
+    {
+      "ledger_id": "DEMO-LEDGER-005",
+      "payout_id": "DEMO-PAYOUT-005",
+      "posted_at": "2026-11-05T13:00:00Z",
+      "amount": "12000.00",
+      "currency": "USD",
+      "account": "Synthetic Gateway Clearing"
+    }
+  ]
+}

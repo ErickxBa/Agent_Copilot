@@ -18,7 +18,9 @@ from src.api_server import (
     get_auth_status,
     list_sessions,
     chat_message,
+    request_validation_error_handler,
 )
+from fastapi.exceptions import RequestValidationError
 from src.copilot_backend import (
     AVAILABLE_SKILLS,
     CopilotAuthStatus,
@@ -67,6 +69,34 @@ class ApiServerTests(unittest.TestCase):
         summary = result["report"]["summary"]
         self.assertIn("exact_matches", summary)
         self.assertIn("reconciliation_exceptions", summary)
+        self.assertGreater(summary["exact_matches"], 0)
+        self.assertGreater(summary["fuzzy_fee_matches"], 0)
+        self.assertGreater(summary["reconciliation_exceptions"], 0)
+        self.assertGreater(summary["orphan_transactions"], 0)
+        self.assertGreater(summary["compliance_alerts"], 0)
+
+    def test_chat_validation_error_lists_missing_form_fields(self):
+        response = asyncio.run(
+            request_validation_error_handler(
+                None,
+                RequestValidationError(
+                    [
+                        {
+                            "type": "missing",
+                            "loc": ("body", "session_id"),
+                            "msg": "Field required",
+                            "input": None,
+                        }
+                    ]
+                ),
+            )
+        )
+
+        self.assertEqual(response.status_code, 422)
+        self.assertEqual(
+            response.body,
+            b'{"detail":"Solicitud de chat incompleta. Faltan los campos: session_id"}',
+        )
 
     def test_generate_pdf_from_report(self):
         result = reconcile_samples()
@@ -146,6 +176,13 @@ class ApiServerTests(unittest.TestCase):
         )
 
         self.assertEqual(result["assistant_content"], "Explicación de prueba")
+        self.mock_backend.send_file_message.assert_called_once_with(
+            session_id="test-session-123",
+            question="Explica el archivo",
+            file_name="referencia.txt",
+            file_content="contenido de referencia",
+            enabled_skills=["reconciliation-engineering"],
+        )
 
 
 if __name__ == "__main__":

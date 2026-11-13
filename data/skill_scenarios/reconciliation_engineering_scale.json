@@ -1,0 +1,27 @@
+{
+  "scenario": "reconciliation-engineering-scale",
+  "dataset": {
+    "synthetic_records": 250,
+    "sources": [
+      "poc_bank",
+      "poc_gateway",
+      "poc_ledger"
+    ],
+    "currency": "USD",
+    "date_range": [
+      "2026-11-01",
+      "2026-11-07"
+    ]
+  },
+  "measurement_plan": {
+    "repeat_runs": 3,
+    "measure": [
+      "elapsed_seconds",
+      "peak_memory_mb",
+      "record_counts_by_category",
+      "source_record_reference_integrity"
+    ],
+    "offline_only": true
+  },
+  "expected_boundary": "This small synthetic batch can exercise a benchmark harness, but it does not prove support for one million records or production throughput."
+}

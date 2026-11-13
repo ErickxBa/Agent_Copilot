@@ -6,6 +6,21 @@ import type {
 
 const API_BASE = '/api'
 
+async function getApiError(res: Response, fallback: string): Promise<string> {
+  const payload = await res.json().catch(() => null)
+  if (typeof payload?.detail === 'string') return payload.detail
+  if (Array.isArray(payload?.detail)) {
+    const fields = payload.detail
+      .map((item: { loc?: unknown[]; msg?: string }) => {
+        const location = item.loc?.filter((part) => part !== 'body').join('.')
+        return location ? `${location}: ${item.msg || 'valor inválido'}` : item.msg
+      })
+      .filter(Boolean)
+    if (fields.length) return fields.join('; ')
+  }
+  return fallback
+}
+
 export async function fetchHealth(): Promise<SystemHealth> {
   const res = await fetch(`${API_BASE}/health`)
   if (!res.ok) throw new Error('Error al conectar con el backend')
@@ -120,8 +135,9 @@ export async function sendChatMessage(
   })
 
   if (!res.ok) {
-    const err = await res.json().catch(() => ({}))
-    throw new Error(err.detail || 'Error procesando el mensaje con Copilot')
+    throw new Error(
+      await getApiError(res, 'Error procesando el mensaje con Copilot')
+    )
   }
 
   return res.json()

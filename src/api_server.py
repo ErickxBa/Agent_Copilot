@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
 from pydantic import BaseModel, Field
@@ -33,6 +34,7 @@ from copilot_backend import (
     CopilotBackendError,
     CopilotSessionInfo,
 )
+from demo_samples import DemoSampleClient
 from copilot_uploads import (
     MAX_UPLOAD_SIZE_BYTES,
     MAX_UPLOAD_SIZE_MB,
@@ -57,6 +59,26 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.exception_handler(RequestValidationError)
+async def request_validation_error_handler(_, exc: RequestValidationError):
+    """Expose actionable field names when a form request is malformed."""
+    missing_fields = []
+    for error in exc.errors():
+        location = ".".join(
+            str(part) for part in error.get("loc", ()) if part != "body"
+        )
+        if error.get("type") == "missing":
+            missing_fields.append(location)
+    detail = (
+        "Solicitud de chat incompleta. Faltan los campos: "
+        + ", ".join(missing_fields)
+        if missing_fields
+        else "Solicitud de chat inválida. Revisa los campos enviados."
+    )
+    return JSONResponse(status_code=422, content={"detail": detail})
+
 
 backend_instance: CopilotBackend | None = None
 
@@ -223,7 +245,7 @@ def reconcile_samples() -> dict[str, Any]:
     
     Prefers deterministic txt_samples for offline execution without external LLM latency.
     """
-    samples_dir = ROOT_DIR / "data" / "txt_samples"
+    samples_dir = ROOT_DIR / "data" / "demo_samples"
     if (samples_dir / "poc_bank.txt").exists():
         mapping = {
             "poc_bank": samples_dir / "poc_bank.txt",
@@ -248,7 +270,11 @@ def reconcile_samples() -> dict[str, Any]:
     sources = [f"{k}: {v[0]}" for k, v in payload.items()]
     try:
         with tempfile.TemporaryDirectory(prefix="agent-banca-sample-report-") as tmpdir:
-            report = run_uploaded_reconciliation(payload, output_dir=tmpdir)
+            report = run_uploaded_reconciliation(
+                payload,
+                output_dir=tmpdir,
+                llm_client=DemoSampleClient(),
+            )
             return {
                 "success": True,
                 "sources": sources,
@@ -368,9 +394,9 @@ async def chat_message(
             answer = await run_in_threadpool(
                 backend.send_file_message,
                 session_id=session_id,
-                prompt=question,
-                filename=attachment.filename or "archivo.json",
-                content=content_str,
+                question=question,
+                file_name=attachment.filename or "archivo.json",
+                file_content=content_str,
                 enabled_skills=enabled_skills,
             )
             user_content = f"{question}\n\nAdjunto: {attachment.filename}"

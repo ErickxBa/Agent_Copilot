@@ -155,10 +155,10 @@ export function App() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Navigation Tabs */}
-        <div className="flex items-center gap-2 mb-6 border-b border-slate-200 dark:border-slate-800 pb-2">
+        <div className="flex items-center gap-2 mb-6 overflow-x-auto border-b border-slate-200 dark:border-slate-800 pb-2 scrollbar-none">
           <button
             onClick={() => setActiveTab('reconciliation')}
-            className={`flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
+            className={`flex shrink-0 items-center gap-2 px-3 sm:px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
               activeTab === 'reconciliation'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'
@@ -170,7 +170,7 @@ export function App() {
 
           <button
             onClick={() => setActiveTab('copilot')}
-            className={`flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
+            className={`flex shrink-0 items-center gap-2 px-3 sm:px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
               activeTab === 'copilot'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'
@@ -219,12 +219,12 @@ export function App() {
             {/* KPI Summary Cards */}
             {report && (
               <>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                   <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                     Resultados del Cruce Contable
                   </h3>
                   {sources.length > 0 && (
-                    <span className="text-[11px] text-slate-400 truncate max-w-md">
+                    <span className="text-[11px] text-slate-400 truncate max-w-full sm:max-w-md">
                       {sources.join(' · ')}
                     </span>
                   )}

@@ -183,9 +183,9 @@ export const CopilotChat: React.FC<CopilotChatProps> = ({ health }) => {
   ]
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden my-6 flex flex-col md:flex-row h-[650px]">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden my-6 flex flex-col md:flex-row h-[min(650px,calc(100vh-7rem))] min-h-[520px]">
       {/* Sidebar: Skills & Sessions */}
-      <div className="w-full md:w-72 border-r border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/40 p-4 flex flex-col justify-between">
+      <div className="w-full md:w-72 shrink-0 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/40 p-4 flex flex-col justify-between max-h-[45%] md:max-h-none overflow-y-auto">
         <div>
           <div className="flex items-center justify-between mb-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
@@ -383,7 +383,7 @@ export const CopilotChat: React.FC<CopilotChatProps> = ({ health }) => {
         </div>
 
         {/* Input Composer */}
-        <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div className="p-3 sm:p-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           {attachment && (
             <div className="flex items-center justify-between mb-2 p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs">
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
@@ -399,7 +399,7 @@ export const CopilotChat: React.FC<CopilotChatProps> = ({ health }) => {
             </div>
           )}
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 min-w-0">
             <input
               type="file"
               ref={fileInputRef}
@@ -423,7 +423,7 @@ export const CopilotChat: React.FC<CopilotChatProps> = ({ health }) => {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
               placeholder="Pregunta sobre las reglas de reconciliación o adjunta un extracto..."
-              className="flex-1 py-2.5 px-4 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              className="min-w-0 flex-1 py-2.5 px-3 sm:px-4 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
             />
 
             <button

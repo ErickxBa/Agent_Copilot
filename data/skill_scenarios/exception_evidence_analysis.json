@@ -1,0 +1,41 @@
+{
+  "scenario": "exception-evidence-analysis",
+  "source_completeness": {
+    "status": "incomplete",
+    "statement": "The gateway export covers only the morning batch; the ledger export may be partial."
+  },
+  "records": [
+    {
+      "source": "poc_bank",
+      "record_id": "SYN-BANK-101",
+      "payout_id": "SYN-PAYOUT-101",
+      "amount": "500.00",
+      "currency": "USD",
+      "timestamp": "2026-11-02T12:00:00Z",
+      "observed_issue": "Bank amount differs from the gateway amount."
+    },
+    {
+      "source": "poc_gateway",
+      "record_id": "SYN-GW-101",
+      "payout_id": "SYN-PAYOUT-101",
+      "gross_amount": "510.00",
+      "currency": "USD",
+      "timestamp": "2026-11-02T10:00:00Z",
+      "observed_issue": "Same payout ID, different amount."
+    },
+    {
+      "source": "poc_bank",
+      "record_id": "SYN-BANK-102",
+      "payout_id": "SYN-PAYOUT-102",
+      "amount": "220.00",
+      "currency": "USD",
+      "timestamp": "2026-11-02T14:00:00Z",
+      "observed_issue": "No matching ledger record is present in the supplied partial export."
+    }
+  ],
+  "expected_classification": [
+    "SYN-PAYOUT-101 is an observed amount discrepancy.",
+    "SYN-PAYOUT-102 is unresolved, not a proven orphan.",
+    "Required follow-up: obtain complete gateway and ledger coverage for the same period."
+  ]
+}

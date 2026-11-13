@@ -1,0 +1,33 @@
+{
+  "currency": "USD",
+  "records": [
+    {
+      "gateway_id": "DEMO-GW-001",
+      "payout_id": "DEMO-PAYOUT-001",
+      "transaction_at": "2026-10-31T12:00:00Z",
+      "gross_amount": "100.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "DEMO-GW-002",
+      "payout_id": "DEMO-PAYOUT-002",
+      "transaction_at": "2026-11-01T12:00:00Z",
+      "gross_amount": "50.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "DEMO-GW-003",
+      "payout_id": "DEMO-PAYOUT-003",
+      "transaction_at": "2026-11-02T12:00:00Z",
+      "gross_amount": "130.00",
+      "currency": "USD"
+    },
+    {
+      "gateway_id": "DEMO-GW-005",
+      "payout_id": "DEMO-PAYOUT-005",
+      "transaction_at": "2026-11-05T10:00:00Z",
+      "gross_amount": "12000.00",
+      "currency": "USD"
+    }
+  ]
+}

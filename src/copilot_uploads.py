@@ -83,6 +83,7 @@ def run_uploaded_reconciliation(
     files: Mapping[str, tuple[str, bytes]],
     *,
     output_dir: Path | str | None = None,
+    llm_client=None,
 ) -> dict[str, Any]:
     expected_sources = set(RECONCILIATION_SOURCES)
     if set(files) != expected_sources:
@@ -102,7 +103,11 @@ def run_uploaded_reconciliation(
 
             load_fixture_data, run_audit = _load_orchestrator()
             fixture_data = load_fixture_data(upload_dir)
-            return run_audit(fixture_data=fixture_data, output_dir=output_dir)
+            return run_audit(
+                fixture_data=fixture_data,
+                output_dir=output_dir,
+                llm_client=llm_client,
+            )
     except UploadValidationError:
         raise
     except (
